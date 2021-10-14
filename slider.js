@@ -1,3 +1,6 @@
+$( document ).ready(function() {
+
+
 $('.customer-logos').slick({
     slidesToShow: 7,
     slidesToScroll: 1,
@@ -18,3 +21,4 @@ $('.customer-logos').slick({
       }
     }]
   });
+});
