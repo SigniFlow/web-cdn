@@ -1,4 +1,4 @@
-$('.customer-logos').slick()({
+$('.customer-logos').slick({
     slidesToShow: 7,
     slidesToScroll: 1,
     autoplay: true,
