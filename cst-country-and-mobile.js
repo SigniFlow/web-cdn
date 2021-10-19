@@ -39,7 +39,6 @@ function phoneFormatter(arg) {
         $(arg).val(formattedNumber);
 };
 
-jQuery(document).ready(function() {
 
 var inputCountry = document.querySelectorAll(".cst-country");
 inputCountry.forEach(function(){
@@ -60,9 +59,8 @@ initialCountry: "auto",
     }
 });                  
   
-                     });
+ });
   
-});
        
 //jQuery(".cst-country").countrySelect({
 //preferredCountries: ["us","gb","za","au","br" ],
