@@ -45,7 +45,7 @@ var Country = "";
 //  .then(response => response.json())
 //  .then(data => setUpCountries(data.country_code));
 
-async function getCountry() {
+const getCountry = async function () => {
   const response = await fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca');
   const data = await response.json();
   return data.country_code;
