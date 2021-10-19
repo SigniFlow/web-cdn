@@ -36,15 +36,19 @@ function phoneFormatter(arg) {
         console.log("check flag: ", flag);
         
         var formattedNumber = intlTelInputUtils.formatNumber(number, flag, intlTelInputUtils.numberFormat.INTERNATIONAL);
-        jQuery(arg).val(formattedNumber);
+        $(arg).val(formattedNumber);
 };
+
+$(document).ready(function() {
 
 var inputCountry = document.querySelectorAll(".cst-country");
 inputCountry.forEach(countryFunction);
-
+  
+});
+                    
 function countryFunction(item) {
   
-jQuery(item).countrySelect({
+$(item).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
 initialCountry: "auto",
     geoIpLookup: function(success) {
