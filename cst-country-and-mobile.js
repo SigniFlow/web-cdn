@@ -42,9 +42,9 @@ function phoneFormatter(arg) {
 jQuery(document).ready(function() {
 
 var inputCountry = document.querySelectorAll(".cst-country");
-inputCountry.forEach(functio(){
+inputCountry.forEach(function(){
                      
-                     jQuery(this).countrySelect({
+jQuery(this).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
 initialCountry: "auto",
     geoIpLookup: function(success) {
@@ -58,9 +58,8 @@ initialCountry: "auto",
           success(ipdata.country_code);
         });
     }
-});
-
-                    
+});                  
+  
                      });
   
 });
