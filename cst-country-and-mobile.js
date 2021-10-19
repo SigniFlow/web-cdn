@@ -39,7 +39,7 @@ function phoneFormatter(arg) {
         $(arg).val(formattedNumber);
 };
 
-$(document).ready(function() {
+jQuery(document).ready(function() {
 
 var inputCountry = document.querySelectorAll(".cst-country");
 inputCountry.forEach(countryFunction);
@@ -48,7 +48,7 @@ inputCountry.forEach(countryFunction);
                     
 function countryFunction(item) {
   
-$(item).countrySelect({
+jQuery(item).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
 initialCountry: "auto",
     geoIpLookup: function(success) {
