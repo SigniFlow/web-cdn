@@ -39,31 +39,21 @@ function phoneFormatter(arg) {
         $(arg).val(formattedNumber);
 };
 
+var Country = "";
 
+fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca')
+  .then(response => response.json())
+  .then(data => setUpCountries(data.country_code));
 
+function setUpCountries(varCountry){
 jQuery(".cst-country").each(function(){
                      
 jQuery(this).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
-initialCountry: "auto",
-    geoIpLookup: function(success) {
-      // Get your api-key at https://ipdata.co/
-      fetch("https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca")
-        .then(function(response) {
-          if (!response.ok) return success("");
-          return response.json();
-        })
-        .then(function(ipdata) {
-          success(ipdata.country_code);
-        
-        jQuery(".cst-country").each(function(){
-          jQuery(this).countrySelect("selectCountry", ipdata.country_code);
-        });        
-          
-        });
+initialCountry: varCountry
     }
 });                  
   
  });
-
+}
 
