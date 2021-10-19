@@ -45,10 +45,13 @@ var Country = "";
 //  .then(response => response.json())
 //  .then(data => setUpCountries(data.country_code));
 
-const response = await fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca');
-const data = await response.json();
+async function getCountry() {
+  const response = await fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca');
+  const data = await response.json();
+  return data.country_code;
+}
 
-function setUpCountries(data.country_code){
+function setUpCountries(varCountry){
 jQuery(".cst-country").each(function(){
                      
 jQuery(this).countrySelect({
@@ -57,3 +60,6 @@ initialCountry: varCountry
 });
 });
 };
+
+var varCountry = getCountry();
+setUpCountries(varCountry);
