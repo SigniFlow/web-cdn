@@ -31,9 +31,9 @@ function phoneFormatter(arg) {
         var classf = jQuery(".iti__selected-flag > div").attr("class");
         var flag = classf.slice(-2);
   
-        console.log("check number: ", number);
-        console.log("check classf: ", classf);
-        console.log("check flag: ", flag);
+        //console.log("check number: ", number);
+        //console.log("check classf: ", classf);
+        //console.log("check flag: ", flag);
         
         var formattedNumber = intlTelInputUtils.formatNumber(number, flag, intlTelInputUtils.numberFormat.INTERNATIONAL);
         $(arg).val(formattedNumber);
@@ -42,6 +42,27 @@ function phoneFormatter(arg) {
 
 
 jQuery(".cst-country").each(function(){
+                     
+jQuery(this).countrySelect({
+preferredCountries: ["us","gb","za","au","br" ],
+initialCountry: "auto",
+    geoIpLookup: function(success) {
+      // Get your api-key at https://ipdata.co/
+      fetch("https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca")
+        .then(function(response) {
+          if (!response.ok) return success("");
+          return response.json();
+        })
+        .then(function(ipdata) {
+          success(ipdata.country_code);
+        });
+    }
+});                  
+  
+ });
+
+
+jQuery(".cst-country-2").each(function(){
                      
 jQuery(this).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
