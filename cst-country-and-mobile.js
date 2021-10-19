@@ -40,8 +40,8 @@ function phoneFormatter(arg) {
 };
 
 
-var inputCountry = document.querySelectorAll(".cst-country");
-inputCountry.forEach(function(){
+
+jQuery(".cst-country").each(function(){
                      
 jQuery(this).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
