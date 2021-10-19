@@ -39,27 +39,29 @@ function phoneFormatter(arg) {
         $(arg).val(formattedNumber);
 };
 
-var Country = "";
 
-//fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca')
-//  .then(response => response.json())
-//  .then(data => setUpCountries(data.country_code));
+var inputCountry = document.querySelectorAll(".cst-country");
+input.forEach(myCountry);
 
-const getCountry = async () => {
-  const response = await fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca');
-  const data = await response.json();
-  return data.country_code;
-}
 
-function setUpCountries(varCountry){
-jQuery(".cst-country").each(function(){
-                     
-jQuery(this).countrySelect({
+function myCountry(item){
+
+
+window.countrySelect(item, {
 preferredCountries: ["us","gb","za","au","br" ],
-initialCountry: varCountry
-});
-});
-};
+initialCountry: "auto",
+    geoIpLookup: function(success) {
+      // Get your api-key at https://ipdata.co/
+      fetch("https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca")
+        .then(function(response) {
+          if (!response.ok) return success("");
+          return response.json();
+        })
+        .then(function(ipdata) {
+          success(ipdata.country_code);
+        });
+    }
+});                  
+ 
 
-var varCountry = getCountry();
-setUpCountries(varCountry);
+}
