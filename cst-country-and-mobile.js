@@ -57,7 +57,7 @@ initialCountry: "auto",
           success(ipdata.country_code);
         
         jQuery(".cst-country").each(function(){
-          jQuery(this).setCountry(ipdata.country_code);
+          jQuery(this).countrySelect("selectCountry", ipdata.country_code);
         });        
           
         });
