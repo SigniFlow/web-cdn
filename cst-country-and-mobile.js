@@ -41,11 +41,14 @@ function phoneFormatter(arg) {
 
 var Country = "";
 
-fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca')
-  .then(response => response.json())
-  .then(data => setUpCountries(data.country_code));
+//fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca')
+//  .then(response => response.json())
+//  .then(data => setUpCountries(data.country_code));
 
-function setUpCountries(varCountry){
+const response = await fetch('https://api.ipdata.co/?api-key=be5fe74fd3115642645f6c303fbe028ed1cc154feed90f02a67c7aca');
+const data = await response.json();
+
+function setUpCountries(data.country_code){
 jQuery(".cst-country").each(function(){
                      
 jQuery(this).countrySelect({
