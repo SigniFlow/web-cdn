@@ -2,7 +2,7 @@ var input = document.querySelectorAll(".cst-int-number");
 input.forEach(myFunction);
 
 function myFunction(item) {
-  
+
 window.intlTelInput(item, {
 separateDialCode: false,
 preferredCountries: ["us","gb","za","au","br" ],
@@ -26,27 +26,19 @@ utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/ut
 }
 
 function phoneFormatter(arg) {
-    
+
         var number =  jQuery(arg).val();
         var classf = jQuery(".iti__selected-flag > div").attr("class");
         var flag = classf.slice(-2);
-  
+
         //console.log("check number: ", number);
         //console.log("check classf: ", classf);
         //console.log("check flag: ", flag);
-        
         var formattedNumber = intlTelInputUtils.formatNumber(number, flag, intlTelInputUtils.numberFormat.INTERNATIONAL);
-        $(arg).val(formattedNumber);
+        jQuery(arg).val(formattedNumber);
 };
 
-
-var inputCountry = document.querySelectorAll(".cst-country");
-input.forEach(myCountry);
-
-
-function myCountry(item){
-
-jQuery(item).countrySelect({
+jQuery(".cst-country").countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
 initialCountry: "auto",
     geoIpLookup: function(success) {
@@ -60,7 +52,4 @@ initialCountry: "auto",
           success(ipdata.country_code);
         });
     }
-});                  
- 
-
-}
+});
