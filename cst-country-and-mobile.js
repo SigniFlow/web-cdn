@@ -44,7 +44,7 @@ inputCountry.forEach(countryFunction);
 
 function countryFunction(item) {
   
-window.countrySelect(item, {
+jQuery(item).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
 initialCountry: "auto",
     geoIpLookup: function(success) {
