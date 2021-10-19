@@ -51,9 +51,6 @@ jQuery(".cst-country").each(function(){
 jQuery(this).countrySelect({
 preferredCountries: ["us","gb","za","au","br" ],
 initialCountry: varCountry
-    }
-});                  
-  
- });
-}
-
+});
+});
+};
